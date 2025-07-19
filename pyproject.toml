@@ -1,7 +1,7 @@
 [project]
-name = "claude-code-example"
+name = "ti84-graphing-calculator"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python implementation of a TI-84 graphing calculator with GUI interface"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
