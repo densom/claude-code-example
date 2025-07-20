@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-import math
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
+
+from calc_engine import evaluate_expression
 
 class TI84Calculator:
     def __init__(self):
@@ -158,14 +159,7 @@ class TI84Calculator:
     
     def calculate(self):
         try:
-            expression = self.current_input
-            expression = expression.replace('sin(', 'math.sin(math.radians(')
-            expression = expression.replace('cos(', 'math.cos(math.radians(')
-            expression = expression.replace('tan(', 'math.tan(math.radians(')
-            expression = expression.replace('log10(', 'math.log10(')
-            expression = expression.replace('log(', 'math.log(')
-            
-            result = eval(expression)
+            result = evaluate_expression(self.current_input)
             self.update_main_display(f"{self.current_input} = {result}")
             self.current_input = str(result)
             self.update_input_display(self.current_input)
